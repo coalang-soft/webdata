@@ -31,6 +31,14 @@ public class OpenStreetmapAccess {
 		);
 	}
 	
+	public static URL webpageByGpsLocation(GPSLocation l, int zoom) throws MalformedURLException{
+		return new URL(
+			"http://www.openstreetmap.org/#map=" + zoom + 
+			"/" + l.getLat() + 
+			"/" + l.getLon()
+		);
+	}
+	
 	public static URL byQuery(String query) throws MalformedURLException{
 		return new URL(
 			"https://nominatim.openstreetmap.org/search?format=json&q=" + query
