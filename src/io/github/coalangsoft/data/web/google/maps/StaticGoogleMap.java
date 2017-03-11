@@ -17,9 +17,11 @@ public class StaticGoogleMap {
 	private String format;
 	private String language;
 	private GoogleMapType type;
+	private ArrayList<GoogleMapsPath> paths;
 	
 	{
 		markers = new ArrayList<GoogleMapsMarker>();
+		paths = new ArrayList<GoogleMapsPath>();
 	}
 	
 	public StaticGoogleMap setCenter(GPSLocation l){
@@ -39,6 +41,11 @@ public class StaticGoogleMap {
 	
 	public StaticGoogleMap addMarker(GoogleMapsMarker marker){
 		this.markers.add(marker);
+		return this;
+	}
+	
+	public StaticGoogleMap addPath(GoogleMapsPath path){
+		this.paths.add(path);
 		return this;
 	}
 	
@@ -90,8 +97,19 @@ public class StaticGoogleMap {
 			if(needSeperator){
 				b.append(SEPERATOR);
 			}
-			System.out.println(type);
 			b.append("maptype=" + type);
+			needSeperator = true;
+		}
+		if(paths.size() != 0){
+			if(needSeperator){
+				b.append(SEPERATOR);
+			}
+			for(int i = 0; i < paths.size(); i++){
+				if(needSeperator){
+					b.append(SEPERATOR);
+				}
+				b.append("path=" + paths.get(i));
+			}
 			needSeperator = true;
 		}
 		
