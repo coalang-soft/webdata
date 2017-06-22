@@ -22,7 +22,7 @@ public class OpenStreetmapData implements Location{
 	
 	public OpenStreetmapData(RawData o){
 		this.displayName = (String) o.get("display_name");
-		this.address = new OpenStreetmapAddress((Map<String, Object>) o.get("address"));
+		this.address = new OpenStreetmapAddress((RawData) o.get("address"));
 		try{this.type = OpenStreetmapType.valueOf((String) o.get("osm_type"));}catch(RuntimeException e){}
 		try{this.gpsLocation = parseGpsLocation(o.get("lat"), o.get("lon"));}catch(RuntimeException e){}
 	}

@@ -11,6 +11,7 @@ import io.github.coalangsoft.data.location.GPSLocation;
 import io.github.coalangsoft.data.web.google.maps.GoogleMapType;
 import io.github.coalangsoft.data.web.google.maps.StaticGoogleMap;
 import io.github.coalangsoft.data.web.google.maps.path.GoogleMapsRectangle;
+import io.github.coalangsoft.data.web.openstreetmap.OpenStreetmapAccess;
 
 public class MapTest {
 	
@@ -29,6 +30,8 @@ public class MapTest {
 		ImageIcon ico = new ImageIcon(ImageIO.read(map.toUrl()));
 		JLabel l = new JLabel(ico);
 		JOptionPane.showMessageDialog(null, l);
+
+		System.out.println(OpenStreetmapAccess.byQueryUrl(OpenStreetmapAccess.byQuery("Germany"))[0].getDescription());
 	}
 	
 }

@@ -1,6 +1,7 @@
 package io.github.coalangsoft.data.web.openstreetmap;
 
 import io.github.coalangsoft.data.location.Address;
+import io.github.coalangsoft.data.parse.RawData;
 
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class OpenStreetmapAddress implements Address{
 	private String country;
 	private String countryCode;
 
-	public OpenStreetmapAddress(Map<String,Object> m){
+	public OpenStreetmapAddress(RawData m){
 		if(m == null){return;}
 		this.road = (String) m.get("road");
 		this.suburb = (String) m.get("suburb");
