@@ -1,5 +1,6 @@
 package io.github.coalangsoft.data.web.wikipedia;
 
+import io.github.coalangsoft.data.parse.RawData;
 import io.github.coalangsoft.data.web.WebPage;
 
 import java.net.MalformedURLException;
@@ -12,14 +13,14 @@ public class WikipediaPage implements WebPage{
 	private String title;
 	private String language;
 
-	public WikipediaPage(String language, ScriptObjectMirror m){
-		ScriptObjectMirror pages = (ScriptObjectMirror) ((ScriptObjectMirror) m.get("query")).get("pages");
-		String[] keys = pages.getOwnKeys(false);
+	public WikipediaPage(String language, RawData m){
+		RawData pages = (RawData) ((RawData) m.get("query")).get("pages");
+		String[] keys = pages.keys();
 		if(keys.length != 1){
 			throw new RuntimeException("More or less than one page found!");
 		}
-		
-		ScriptObjectMirror page = (ScriptObjectMirror) pages.get(keys[0]);
+
+		RawData page = (RawData) pages.get(keys[0]);
 		
 		this.pageid = (Integer) page.get("pageid");
 		this.title = (String) page.get("title");

@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.Map;
 import javax.script.ScriptException;
 
+import io.github.coalangsoft.data.parse.RawData;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 import io.github.coalangsoft.data.location.GPSLocation;
@@ -48,14 +49,11 @@ public class OpenStreetmapAccess {
 	public static OpenStreetmapData[] byQueryUrl(URL url) throws IOException{
 		String json = ReadUtil.readLine(url.openStream());
 		try {
-			ScriptObjectMirror m = JsonUtil.parse(json);
-			if(!m.isArray()){
-				throw new RuntimeException("JSON result is not an Array!");
-			}
+			RawData m = JsonUtil.parse(json);
 			int length = (int) m.get("length");
 			OpenStreetmapData[] res = new OpenStreetmapData[length];
 			for(int i = 0; i < length; i++){
-				res[i] = new OpenStreetmapData((Map<String,Object>) m.getSlot(i));
+				res[i] = new OpenStreetmapData((RawData) m.at(i));
 			}
 			
 			return res;

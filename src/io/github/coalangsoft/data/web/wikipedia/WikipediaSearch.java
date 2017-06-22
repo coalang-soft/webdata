@@ -6,40 +6,41 @@ import java.net.URL;
 
 import javax.script.ScriptException;
 
+import io.github.coalangsoft.data.parse.RawData;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 public class WikipediaSearch {
 	
 	private String query;
-	private ScriptObjectMirror titles;
-	private ScriptObjectMirror descriptions;
-	private ScriptObjectMirror urls;
+	private RawData titles;
+	private RawData descriptions;
+	private RawData urls;
 	private Integer resultCount;
 	private String language;
 
-	public WikipediaSearch(String language, ScriptObjectMirror m){
-		this.query = (String) m.getSlot(0);
-		this.titles = (ScriptObjectMirror) m.getSlot(1);
-		this.descriptions = (ScriptObjectMirror) m.getSlot(2);
-		this.urls = (ScriptObjectMirror) m.getSlot(3);
+	public WikipediaSearch(String language, RawData m){
+		this.query = (String) m.at(0);
+		this.titles = (RawData) m.at(1);
+		this.descriptions = (RawData) m.at(2);
+		this.urls = (RawData) m.at(3);
 		
 		this.resultCount = (Integer) titles.get("length");
 		this.language = language;
 	}
 	
 	public URL getUrl(int index) throws MalformedURLException{
-		return new URL((String) urls.getSlot(index));
+		return new URL((String) urls.at(index));
 	}
 	
 	public String getTitle(int index) {
-		return (String) titles.getSlot(index);
+		return (String) titles.at(index);
 	}
 	
 	public String getDescription(int index) {
-		return (String) descriptions.getSlot(index);
+		return (String) descriptions.at(index);
 	}
 	
-	public WikipediaPage getPage(int index) throws MalformedURLException, ScriptException, IOException{
+	public WikipediaPage getPage(int index) throws ScriptException, IOException{
 		return new WikipediaAccess(language).byPageName(getTitle(index).replace(' ', '_'));
 	}
 

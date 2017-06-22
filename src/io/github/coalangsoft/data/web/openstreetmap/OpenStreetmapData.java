@@ -2,6 +2,7 @@ package io.github.coalangsoft.data.web.openstreetmap;
 
 import io.github.coalangsoft.data.location.GPSLocation;
 import io.github.coalangsoft.data.location.Location;
+import io.github.coalangsoft.data.parse.RawData;
 import io.github.coalangsoft.data.util.JsonUtil;
 
 import java.util.Map;
@@ -19,7 +20,7 @@ public class OpenStreetmapData implements Location{
 		this(JsonUtil.parse(json));
 	}
 	
-	public OpenStreetmapData(Map<String, Object> o){
+	public OpenStreetmapData(RawData o){
 		this.displayName = (String) o.get("display_name");
 		this.address = new OpenStreetmapAddress((Map<String, Object>) o.get("address"));
 		try{this.type = OpenStreetmapType.valueOf((String) o.get("osm_type"));}catch(RuntimeException e){}

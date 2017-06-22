@@ -40,7 +40,7 @@ public class WikipediaAccess {
 		);
 	}
 	
-	public WikipediaPage byPageName(String name) throws MalformedURLException, ScriptException, IOException{
+	public WikipediaPage byPageName(String name) throws ScriptException, IOException{
 		return new WikipediaPage(language, JsonUtil.parse(ReadUtil.readLine(urlByPageName(name))));
 	}
 	
