@@ -5,8 +5,6 @@ import io.github.coalangsoft.data.location.Location;
 import io.github.coalangsoft.data.parse.RawData;
 import io.github.coalangsoft.data.util.JsonUtil;
 
-import java.util.Map;
-
 import javax.script.ScriptException;
 
 public class OpenStreetmapData implements Location{

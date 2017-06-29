@@ -6,7 +6,6 @@ import io.github.coalangsoft.data.util.ReadUtil;
 
 import javax.script.ScriptException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**

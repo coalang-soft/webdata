@@ -7,7 +7,6 @@ import java.net.URL;
 import javax.script.ScriptException;
 
 import io.github.coalangsoft.data.parse.RawData;
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 public class WikipediaSearch {
 	

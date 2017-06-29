@@ -5,7 +5,6 @@ import io.github.coalangsoft.data.web.WebPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 public class WikipediaPage implements WebPage{
 	

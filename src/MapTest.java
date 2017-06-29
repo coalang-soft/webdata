@@ -21,7 +21,7 @@ public class MapTest {
 		map.setFormat("jpg");
 		map.setLanguage("de");
 		map.setSize(600, 600);
-		map.setType(GoogleMapType.roadmap);
+		map.setType(GoogleMapType.ROADMAP);
 		map.addPath(new GoogleMapsRectangle
 				(new GPSLocation(0,0), 10)
 				.toPath());

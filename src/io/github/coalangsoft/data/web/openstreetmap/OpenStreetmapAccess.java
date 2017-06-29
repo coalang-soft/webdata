@@ -4,11 +4,9 @@ package io.github.coalangsoft.data.web.openstreetmap;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
 import javax.script.ScriptException;
 
 import io.github.coalangsoft.data.parse.RawData;
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 import io.github.coalangsoft.data.location.GPSLocation;
 import io.github.coalangsoft.data.util.JsonUtil;

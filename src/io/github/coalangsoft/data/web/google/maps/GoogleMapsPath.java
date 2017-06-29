@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class GoogleMapsPath {
 	
-	private static final long serialVersionUID = -8046780491470309631L;
-	
 	private ArrayList<String> points = new ArrayList<String>();
 	private GoogleMapsColor color;
 	private Integer width;

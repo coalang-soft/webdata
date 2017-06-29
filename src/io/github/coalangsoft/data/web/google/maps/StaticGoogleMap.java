@@ -97,7 +97,7 @@ public class StaticGoogleMap {
 			if(needSeperator){
 				b.append(SEPERATOR);
 			}
-			b.append("maptype=" + type);
+			b.append("maptype=" + type.toString().toLowerCase());
 			needSeperator = true;
 		}
 		if(paths.size() != 0){

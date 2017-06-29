@@ -2,8 +2,6 @@ package io.github.coalangsoft.data.web.glosbe.translate;
 
 import io.github.coalangsoft.data.parse.RawData;
 
-import java.util.Arrays;
-
 /**
  * Created by Matthias on 22.06.2017.
  */

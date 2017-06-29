@@ -25,4 +25,12 @@ public class GPSLocation {
 		return lon;
 	}
 	
+	public boolean equals(Object other){
+		if(other instanceof GPSLocation){
+			GPSLocation g = (GPSLocation) other;
+			return (g.getLat() == getLat()) && (g.getLon() == getLon());
+		}
+		return false;
+	}
+	
 }
