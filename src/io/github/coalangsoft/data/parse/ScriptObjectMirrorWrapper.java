@@ -14,6 +14,9 @@ public class ScriptObjectMirrorWrapper implements RawData{
     }
 
     private static Object wrap(Object res){
+    	if(ScriptObjectMirror.isUndefined(res)){
+    		return null;
+    	}
         if(res instanceof ScriptObjectMirror){
             return new ScriptObjectMirrorWrapper((ScriptObjectMirror) res);
         }else{
