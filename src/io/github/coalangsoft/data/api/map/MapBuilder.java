@@ -1,7 +1,9 @@
 package io.github.coalangsoft.data.api.map;
 
 import io.github.coalangsoft.data.location.GPSLocation;
+import io.github.coalangsoft.data.web.openstreetmap.OpenStreetmapAccess;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,6 +39,10 @@ public class MapBuilder<MapType, MarkerType, PathType> {
     public MapBuilder<MapType, MarkerType, PathType> setCenter(GPSLocation l){
         this.center = l;
         return this;
+    }
+    
+    public MapBuilder<MapType, MarkerType, PathType> setCenter(String s) throws MalformedURLException, IOException{
+    	return setCenter(OpenStreetmapAccess.byQueryUrl(OpenStreetmapAccess.byQuery(s))[0].getGpsLocation());
     }
 
     public MapBuilder<MapType, MarkerType, PathType> setZoom(int zoom){
